@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pudim</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <h1>Venha conhecer a história do <span>pudim!</span></h1>
+
+  <p>
+    O pudim tem raízes na Europa medieval, evoluindo de misturas de ovos,
+    leite e mel (típicas do Império Romano) para versões doces após a
+    introdução do açúcar. Hoje, o pudim brasileiro é tipicamente de
+    leite condensado, mas existem variações como o pudim de pão,
+    de leite, de laranja e o flan.
+  </p>
+
+  <img 
+    src="https://aventurasnahistoria.com.br/wp-content/uploads/bizarro/pudimammdm.jpg"
+    alt="Imagem de um pudim com calda de caramelo"
+    class="hero-img"
+  >
+</header>
+
+<main id="mais">
+<section class="card">
+<h2>Curiosidades</h2>
+<p>O banho-maria evita que o pudim vire omelete.</p>
+</section>
+
+<section class="card share">
+<h2>Compartilhar</h2>
+<a id="w">WhatsApp</a>
+<button onclick="navigator.clipboard.writeText(location.href)">Copiar link</button>
+</section>
+</main>
+
+<footer>
+<p>© <span id="y"></span> Pudim Fan Page</p>
+</footer>
+
+<script>
+let u=encodeURIComponent(location.href);
+document.getElementById("w").href="https://wa.me/?text=Pudim "+u;
+document.getElementById("y").textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
