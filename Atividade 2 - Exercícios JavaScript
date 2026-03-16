@@ -1,0 +1,73 @@
+1) 
+let numeroSecreto = Math.floor(Math.random() * 20) + 1;
+let palpite;
+
+while (palpite != numeroSecreto) {
+  palpite = Number(prompt("Adivinhe o número de 1 a 20:"));
+
+  if (palpite > numeroSecreto) {
+    alert("O número secreto é menor!");
+  } else if (palpite < numeroSecreto) {
+    alert("O número secreto é maior!");
+  } else {
+    alert("Parabéns! Você acertou o número!");
+  }
+}
+---------------------------------------------------
+2)
+let opcoes = ["pedra", "papel", "tesoura"];
+let usuario = prompt("Escolha: pedra, papel ou tesoura").toLowerCase();
+let computador = opcoes[Math.floor(Math.random() * 3)];
+
+console.log("Usuário escolheu: " + usuario);
+console.log("Computador escolheu: " + computador);
+
+if (usuario === computador) {
+  console.log("Empate!");
+} else if (
+  (usuario === "pedra" && computador === "tesoura") ||
+  (usuario === "papel" && computador === "pedra") ||
+  (usuario === "tesoura" && computador === "papel")
+) {
+  console.log("Você venceu!");
+} else {
+  console.log("Computador venceu!");
+}
+------------------------------------
+
+3)
+let numero = Number(prompt("Digite um número para ver a tabuada:"));
+
+for (let i = 1; i <= 10; i++) 
+{
+  console.log(numero + " x " + i + " = " + (numero * i));
+}
+---------------------------------
+4)
+let linhas = Number(prompt("Digite o número de linhas do triângulo:"));
+let triangulo = "";
+
+for (let i = 1; i <= linhas; i++) {
+  triangulo += "*".repeat(i) + "\n";
+}
+
+console.log(triangulo);
+--------------------------------------
+5)
+let n = Number(prompt("Digite a quantidade de termos:"));
+let termo = "";
+let soma = 0;
+let sequencia = "";
+
+for (let i = 1; i <= n; i++) {
+  termo += "1";
+  soma += Number(termo);
+
+  sequencia += termo;
+  if (i < n) {
+    sequencia += " + ";
+  }
+}
+
+console.log(sequencia);
+console.log("A soma é: " + soma);
