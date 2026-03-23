@@ -1,0 +1,68 @@
+let count = 0;
+
+const contador = document.getElementById("contador");
+const btnMais = document.getElementById("mais");
+const btnMenos = document.getElementById("menos");
+
+btnMais.onclick = () => {
+  count++;
+  contador.textContent = count;
+};
+
+btnMenos.onclick = () => {
+  if (count === 0) {
+    alert("O contador já está em zero!");
+  } else {
+    count--;
+    contador.textContent = count;
+  }
+};
+
+const input = document.getElementById("texto");
+const listaTexto = document.getElementById("listaTexto");
+const charCount = document.getElementById("charCount");
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && input.value.trim() !== "") {
+    const p = document.createElement("p");
+    p.textContent = input.value;
+    listaTexto.appendChild(p);
+
+    input.value = "";
+    charCount.textContent = 0;
+  }
+});
+
+input.addEventListener("input", () => {
+  const semEspaco = input.value.replace(/\s/g, "");
+  charCount.textContent = semEspaco.length;
+});
+
+const addLista = document.getElementById("addLista");
+const tipoLista = document.getElementById("tipoLista");
+const listas = document.getElementById("listas");
+
+addLista.onclick = () => {
+  const tipo = tipoLista.value;
+  const lista = document.createElement(tipo);
+
+  for (let i = 1; i <= 3; i++) {
+    const li = document.createElement("li");
+    li.textContent = "Item " + i;
+    lista.appendChild(li);
+  }
+
+  listas.appendChild(lista);
+};
+
+const reset = document.getElementById("reset");
+
+reset.onclick = () => {
+  count = 0;
+  contador.textContent = 0;
+
+  listaTexto.innerHTML = "";
+  listas.innerHTML = "";
+  input.value = "";
+  charCount.textContent = 0;
+};
