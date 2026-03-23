@@ -1,0 +1,22 @@
+body {
+  font-family: Georgia, serif;
+  background-color: #ddd;
+  padding: 20px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+button {
+  margin: 5px;
+}
+
+input {
+  margin-top: 10px;
+}
+
+#contador {
+  font-size: 20px;
+  margin-top: 10px;
+}
