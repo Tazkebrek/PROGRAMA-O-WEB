@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <title>Feedbacks</title>
+
+            <style>
+
+                body{
+                    font-family: Arial;
+                    padding: 30px;
+                    background: #f4f4f4;
+                }
+
+                .card{
+                    background: white;
+                    padding: 20px;
+                    margin-bottom: 15px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+                }
+
+                input, textarea{
+                    width: 100%;
+                    padding: 10px;
+                    margin-top: 5px;
+                    margin-bottom: 15px;
+                }
+
+                button{
+                    padding: 10px 15px;
+                    cursor: pointer;
+                }
+
+            </style>
+
+        </head>
+        <body>
+
+            <div class="card">
+
+                <h1>Enviar Feedback</h1>
+
+                <form action="/feedbacks/enviar" method="POST">
+
+                    <label>Nome:</label>
+
+                    <input
+                        type="text"
+                        name="nome"
+                        required
+                    >
+
+                    <label>Comentário:</label>
+
+                    <textarea
+                        name="comentario"
+                        required
+                    ></textarea>
+
+                    <button type="submit">
+                        Enviar Feedback
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Lista de Feedbacks</h2>
+
+                ${
+                    feedbacks.length === 0
+                    ? "<p>Nenhum feedback enviado.</p>"
+                    : feedbacks.map(feedback => `
+                        
+                        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+
+                            <h3>${feedback.nome}</h3>
+
+                            <p>${feedback.comentario}</p>
+
+                            <form action="/feedbacks/remover" method="POST">
+
+                                <input
+                                    type="hidden"
+                                    name="id"
+                                    value="${feedback.id}"
+                                >
+
+                                <button type="submit">
+                                    Remover
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    `).join("")
+                }
+
+            </div>
+
+        </body>
+        </html>
+    `);
